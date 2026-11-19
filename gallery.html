@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>myhomebistro | Gallery</title>
+<meta name="description" content="Experience fine dining at your home. Fine dining at home by Chef Shikha.">
+<link rel="icon" href="images/cropped-SHIKHA-logo-1-e1523634897971.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1795087114">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="logo" href="index.html"><img src="images/SHIKHA-logo1.png" alt="myhomebistro"></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">&#9776;</button>
+    <nav><ul><li><a href="index.html">Home</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html" class="active">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main>
+
+<div class="filters"><button class="active" data-f="*">Show All</button><button data-f="AMUSE BOUCHE">AMUSE BOUCHE</button><button data-f="SALAD">SALAD</button><button data-f="SOUP">SOUP</button><button data-f="POISSON FISH">POISSON FISH</button><button data-f="OEUF EGG">OEUF EGG</button><button data-f="PLAT VEGETARIAN">PLAT VEGETARIAN</button><button data-f="PLAT NON VEGETARIAN">PLAT NON VEGETARIAN</button><button data-f="DESSERT">DESSERT</button></div>
+<div class="grid gallery-grid"><figure class="card" data-cat="AMUSE BOUCHE"><img src="images/IMG_3288.jpg" alt="Cucumber tartare with four avatars of lemon"><figcaption><strong>AMUSE BOUCHE</strong>Cucumber tartare with four avatars of lemon</figcaption></figure><figure class="card" data-cat="AMUSE BOUCHE"><img src="images/FullSizeRender12.jpg" alt="Antipasto plate (Chicken liver pâté, black olive tapenade, onion jam &amp; sun dried tomato with hot pepper)"><figcaption><strong>AMUSE BOUCHE</strong>Antipasto plate (Chicken liver pâté, black olive tapenade, onion jam &amp; sun dried tomato with hot pepper)</figcaption></figure><figure class="card" data-cat="SALAD"><img src="images/FullSizeRender10.jpg" alt="Balsamic vinegar strawberry with mixed leaves, feta and roquette pesto"><figcaption><strong>SALAD</strong>Balsamic vinegar strawberry with mixed leaves, feta and roquette pesto</figcaption></figure><figure class="card" data-cat="SALAD"><img src="images/FullSizeRender11.jpg" alt="Mixed melons with moras leaves and watermelon jus"><figcaption><strong>SALAD</strong>Mixed melons with moras leaves and watermelon jus</figcaption></figure><figure class="card" data-cat="SOUP"><img src="images/FullSizeRender5.jpg" alt="Oyster mushroom and butter beans"><figcaption><strong>SOUP</strong>Oyster mushroom and butter beans</figcaption></figure><figure class="card" data-cat="POISSON FISH"><img src="images/IMG_3336.jpg" alt="Pomfret with cucumber and tonka beans infused fumet"><figcaption><strong>POISSON FISH</strong>Pomfret with cucumber and tonka beans infused fumet</figcaption></figure><figure class="card" data-cat="POISSON FISH"><img src="images/IMG_3337.jpg" alt="Shrimps with red cabbage gel and celery boule"><figcaption><strong>POISSON FISH</strong>Shrimps with red cabbage gel and celery boule</figcaption></figure><figure class="card" data-cat="OEUF EGG"><img src="images/FullSizeRender6.jpg" alt="Poached organic egg with asparagus and hollandaise"><figcaption><strong>OEUF EGG</strong>Poached organic egg with asparagus and hollandaise</figcaption></figure><figure class="card" data-cat="PLAT VEGETARIAN"><img src="images/FullSizeRender7.jpg" alt="Zucchini fritters with romesco and parmesan crumble"><figcaption><strong>PLAT VEGETARIAN</strong>Zucchini fritters with romesco and parmesan crumble</figcaption></figure><figure class="card" data-cat="PLAT VEGETARIAN"><img src="images/FullSizeRender8.jpg" alt="Risotto with portobello mushroom, waterchestnut purée and truffle oil"><figcaption><strong>PLAT VEGETARIAN</strong>Risotto with portobello mushroom, waterchestnut purée and truffle oil</figcaption></figure><figure class="card" data-cat="PLAT NON VEGETARIAN"><img src="images/IMG_3317.jpg" alt="Turkish spice rubbed chicken with spaghetti aglio olio"><figcaption><strong>PLAT NON VEGETARIAN</strong>Turkish spice rubbed chicken with spaghetti aglio olio</figcaption></figure><figure class="card" data-cat="PLAT NON VEGETARIAN"><img src="images/FullSizeRender9.jpg" alt="Coq au vin with mashed potato, bacon crisps and parmesan crumble"><figcaption><strong>PLAT NON VEGETARIAN</strong>Coq au vin with mashed potato, bacon crisps and parmesan crumble</figcaption></figure><figure class="card" data-cat="DESSERT"><img src="images/IMG_3289.jpg" alt="Cotton cake with poached peaches and cream anglaise"><figcaption><strong>DESSERT</strong>Cotton cake with poached peaches and cream anglaise</figcaption></figure><figure class="card" data-cat="DESSERT"><img src="images/FullSizeRender4.jpg" alt="White chocolate and coconut panacotta with mango mousse, passion fruit sauce"><figcaption><strong>DESSERT</strong>White chocolate and coconut panacotta with mango mousse, passion fruit sauce</figcaption></figure></div>
+<div class="lightbox" onclick="this.classList.remove('open')"><div><img alt=""><p></p></div></div>
+<script>
+document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
+  document.querySelectorAll('.filters button').forEach(x => x.classList.toggle('active', x === b));
+  document.querySelectorAll('.card').forEach(c =>
+    c.classList.toggle('hidden', b.dataset.f !== '*' && c.dataset.cat !== b.dataset.f));
+});
+const lb = document.querySelector('.lightbox');
+document.querySelectorAll('.card').forEach(c => c.onclick = () => {
+  lb.querySelector('img').src = c.querySelector('img').src;
+  lb.querySelector('p').textContent = c.querySelector('img').alt;
+  lb.classList.add('open');
+});
+</script>
+
+</main>
+<footer>Copyright 2026 Myhomebistro.&nbsp;&nbsp; All Rights Reserved.</footer>
+</body>
+</html>

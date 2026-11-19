@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>myhomebistro | Experience fine dining at your home</title>
+<meta name="description" content="Experience fine dining at your home. Fine dining at home by Chef Shikha.">
+<link rel="icon" href="images/cropped-SHIKHA-logo-1-e1523634897971.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1795087114">
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="logo" href="index.html"><img src="images/SHIKHA-logo1.png" alt="myhomebistro"></a>
+    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('nav').classList.toggle('open')">&#9776;</button>
+    <nav><ul><li><a href="index.html" class="active">Home</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main>
+
+<div class="home">
+  <section class="home-text">
+    <h2>Bonjour!</h2>
+    <p>With <em>myhomebistro</em> you can enjoy a fine dining experience at your home. Our team will carefully tailor a unique experience for your needs. Book with us to make a memorable meal with your loved ones.</p>
+    <p>We curate our menu around seasonal produce. A typical sit-down lunch or dinner will be around 3 to 5 courses. Don’t worry about table linen, cutlery or the right wine glass – we have it covered! You don’t have to do a thing – except to sit back and enjoy our carefully crafted meals.</p>
+  </section>
+  <div class="masonry"><figure class="card" data-cat="PLAT (Vegetarian)"><img src="images/IMG_3293.jpg" alt="Moong gourd with bulgar, onion sauce and coriander pesto"><figcaption><strong>PLAT (Vegetarian)</strong>Moong gourd with bulgar, onion sauce and coriander pesto</figcaption></figure><figure class="card" data-cat="POISSON"><img src="images/IMG_3308.jpg" alt="Rawas with snap peas"><figcaption><strong>POISSON</strong>Rawas with snap peas</figcaption></figure><figure class="card" data-cat="SOUP"><img src="images/IMG_3298.jpg" alt="Soup verde with coconut milk and sea weed"><figcaption><strong>SOUP</strong>Soup verde with coconut milk and sea weed</figcaption></figure><figure class="card" data-cat="DESSERT"><img src="images/FullSizeRender_2.jpg" alt="Entremet au chocolate"><figcaption><strong>DESSERT</strong>Entremet au chocolate</figcaption></figure><figure class="card" data-cat="SALAD"><img src="images/IMG_3287.jpg" alt="Plum salad with fruit chutney and goat cheese"><figcaption><strong>SALAD</strong>Plum salad with fruit chutney and goat cheese</figcaption></figure><figure class="card" data-cat="DESSERT"><img src="images/IMG_4794.jpg" alt="Strawberry tart"><figcaption><strong>DESSERT</strong>Strawberry tart</figcaption></figure><figure class="card" data-cat="OEUF"><img src="images/FullSizeRender.jpg" alt="Free range egg with pea hummus and hollandaise sauce"><figcaption><strong>OEUF</strong>Free range egg with pea hummus and hollandaise sauce</figcaption></figure><figure class="card" data-cat="AMUSE BOUCHE"><img src="images/FullSizeRender_3.jpg" alt="Parmesan biscuit with avocado mayonnaise, cherry tomato and roquette pesto"><figcaption><strong>AMUSE BOUCHE</strong>Parmesan biscuit with avocado mayonnaise, cherry tomato and roquette pesto</figcaption></figure><figure class="card" data-cat="POISSON"><img src="images/FullSizeRender_1.jpg" alt="Shrimps with smoked mango salsa"><figcaption><strong>POISSON</strong>Shrimps with smoked mango salsa</figcaption></figure></div>
+</div>
+<script>
+// Place each photo in the shortest column, left to right (like the original site).
+function layoutMasonry() {
+  const box = document.querySelector('.masonry');
+  const cards = [...box.querySelectorAll('.card')];
+  const n = innerWidth <= 480 ? 1 : innerWidth <= 1000 ? 2 : 3;
+  box.innerHTML = '';
+  const cols = Array.from({length: n}, () => box.appendChild(Object.assign(document.createElement('div'), {className: 'mcol'})));
+  const h = new Array(n).fill(0);
+  cards.forEach(c => {
+    const img = c.querySelector('img');
+    const i = h.indexOf(Math.min(...h));
+    cols[i].appendChild(c);
+    h[i] += (img.naturalHeight / img.naturalWidth) || 1;
+  });
+}
+addEventListener('load', layoutMasonry);
+let rt; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layoutMasonry, 150); });
+</script>
+
+</main>
+<footer>Copyright 2026 Myhomebistro.&nbsp;&nbsp; All Rights Reserved.</footer>
+</body>
+</html>
